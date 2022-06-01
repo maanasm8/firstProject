@@ -1,0 +1,15 @@
+<div *ngIf="pro">
+    <h2>Details of {{pro.name}}</h2>
+</div>
+
+<!--Here pro is Route property which contains all details of incoming product based on its ID-->
+
+<div *ngIf="pro">
+    <img src={{pro.img}} alt="" height="500" width="500">
+    <h2>{{pro.name}}</h2>
+    <!-- uses the currency pipe to transform product.price from a 
+        number to a currency string-->
+    <h4>{{pro.price | currency}}</h4>
+    <p>{{pro.description}}</p>
+    <!-- <p>{{pro.specs}}</p> -->
+</div>

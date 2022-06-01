@@ -13,6 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import {MatIconModule} from '@angular/material/icon';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 
 
@@ -21,14 +22,17 @@ import {MatIconModule} from '@angular/material/icon';
     AppComponent,
     TopBarComponent,
     ProductListComponent,
-    ProductAlertsComponent
+    ProductAlertsComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    //TO ENABLE ROUTER LINKING
     RouterModule.forRoot([
       {path: '', component:ProductListComponent},
+      {path: 'products/:productId', component:ProductDetailsComponent}
     ]),
     NoopAnimationsModule,
     MatToolbarModule,
