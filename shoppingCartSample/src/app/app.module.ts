@@ -11,6 +11,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
+import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -18,7 +20,8 @@ import {MatDividerModule} from '@angular/material/divider';
   declarations: [
     AppComponent,
     TopBarComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductAlertsComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import {MatDividerModule} from '@angular/material/divider';
     NoopAnimationsModule,
     MatToolbarModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
 
     
   ],

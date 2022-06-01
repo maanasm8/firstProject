@@ -1,0 +1,11 @@
+<!--USING prod from .ts file imported using @Input decorator-->
+<p *ngIf="prod && prod.price > 700">
+    <!--update the Notify Me button with an event binding to call 
+        the notifyUser.emit() method, here notifyUser is the @Output Decorator emitter name from .ts.-->
+
+    <!--Here, Define the behavior that happens when the user clicks the button. 
+        The parent, ProductListComponent NOT the ProductAlertsComponent— acts when the child raises 
+        the event. In product-list.component.ts, 
+        define an onNotify() method, similar to the share() method.-->
+    <button mat-raised-button color="accent" (click)="notifyUser.emit()">Notify Me!</button>
+</p>

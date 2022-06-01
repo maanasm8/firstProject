@@ -6,10 +6,28 @@
         </a>
     </h3>
 
-    <p *ngIf="p.description">
+    <p *ngIf="p.description else noAvailableModels">
         Description: {{p.description}}
     </p>
+    <ng-template #noAvailableModels>
+        More Coming Soon..
+    </ng-template>
+
+    <p *ngIf="p.price > 0 else noPriceAvailable">
+        Price: {{p.price}}
+    </p>
+    <ng-template #noPriceAvailable>
+        
+    </ng-template>
 
     <img *ngIf="p.img" src={{p.img}} alt="" width="200" height="200">
-    <button type="button" (click)="shareProduct()">Share this phone</button>
+    <button  *ngIf="p.img" mat-fab color="primary" (click)="shareProduct()"><mat-icon>share</mat-icon></button>
+
+    <!--[prod] is from product-alerts-component.ts set using @Input decorator
+    this is now being set to the data 'p'-->
+    <!--Here, (notifyUser) is the @Output decorator's emmiter name from product-alerts component 
+    and onNotify() is the method that gets called when emmited-->
+    <app-product-alerts [prod]="p" (notifyUser)="onNotify()">
+
+    </app-product-alerts>
 </div>
