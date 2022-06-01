@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/shopping-cart-sample",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
