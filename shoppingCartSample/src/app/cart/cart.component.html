@@ -4,9 +4,39 @@
     <a routerLink="/shipping">Check Shipping Prices</a>
 </p>
 
-
 <div class="cart-item" *ngFor="let i of items">
     <img src={{i.img}} alt="" height="200" width="200">
     <span>{{i.name}}</span>
     <span>{{i.price | currency}}</span>
 </div>
+
+<!--formGroup property binding to bind checkOutForm Variable to the HTML form we create-->
+<!--ngSubmit event binding to listen form submission and call onSubmit method defined in .ts-->
+<form [formGroup]="checkOutForm" (ngSubmit)="onSubmit()">
+
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name">
+    </div>
+    <div>
+        <label for="address">Address</label>
+        <input type="text" id="address" formControlName="address">
+    </div>
+    <div>
+        <label for="phoneNo">Phone Number</label>
+        <input type="text" id="phoneNo" formControlName="phoneNo">
+    </div>
+    <div>
+        <label for="creditCardInfo">Credit Card Number</label>
+        <input type="text" id="creditCardInfo" formControlName="creditCardInfo">
+    </div>
+    <div>
+        <label for="expDate">Expiry Date (MM/YYYY)</label>
+        <input type="text" id="expDate" formControlName="expDate">
+    </div>
+    <div>
+        <label for="cvv">CVV Number</label>
+        <input type="password" id="cvv" formControlName="cvv">
+    </div>
+    <button class="button" mat-flat-button type="submit">Purchase</button>
+</form>
