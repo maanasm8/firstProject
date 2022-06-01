@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Product, products} from '../products';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -23,10 +24,10 @@ export class ProductDetailsComponent implements OnInit {
    * By injecting ActivatedRoute, you are configuring the component to use a service. 
    * The Managing Data step covers services in more detail.
    */
-  constructor(private rou:ActivatedRoute) { }
+  //INJECTING CartService service by adding it to Constructor (Dependecy Injection)
+  constructor(private rou:ActivatedRoute, private cartS:CartService) { }
 
   ngOnInit() {
-
     //EXTRACTING product id from current route 'rou'
     /**
      * To access the route parameters, we use route.snapshot, 
@@ -42,8 +43,14 @@ export class ProductDetailsComponent implements OnInit {
     const productIDExtractedFromRoute = Number(routeParam.get('productId'));
 
     //Get the matching product that correspond with the id we got from rou and set it to pro property
-    
     this.pro = products.find(pr => pr.id === productIDExtractedFromRoute) ;
+
+  }
+
+  //addToCart() method that adds the current product to cart
+  addToCart(pr: Product){
+    this.cartS.addToCart(pr);
+    window.alert('Your product has been added to the cart!');
   }
 
 }

@@ -14,6 +14,9 @@ import {MatDividerModule} from '@angular/material/divider';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import {MatIconModule} from '@angular/material/icon';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartComponent } from './cart/cart.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ShippingComponent } from './shipping/shipping.component';
 
 
 
@@ -23,22 +26,27 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     TopBarComponent,
     ProductListComponent,
     ProductAlertsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartComponent,
+    ShippingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    //TO ENABLE ROUTER LINKING
+    //TO ENABLE ROUTER LINKING for individual prodcut details and shopping cart
     RouterModule.forRoot([
       {path: '', component:ProductListComponent},
-      {path: 'products/:productId', component:ProductDetailsComponent}
+      {path: 'products/:productId', component:ProductDetailsComponent},
+      {path: 'cart', component:CartComponent},
+      {path:'shipping', component:ShippingComponent}
     ]),
     NoopAnimationsModule,
     MatToolbarModule,
     MatDividerModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
 
     
   ],

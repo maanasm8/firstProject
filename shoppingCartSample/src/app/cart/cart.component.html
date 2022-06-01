@@ -1,0 +1,12 @@
+<h3>Shopping Cart</h3>
+
+<p>
+    <a routerLink="/shipping">Check Shipping Prices</a>
+</p>
+
+
+<div class="cart-item" *ngFor="let i of items">
+    <img src={{i.img}} alt="" height="200" width="200">
+    <span>{{i.name}}</span>
+    <span>{{i.price | currency}}</span>
+</div>
